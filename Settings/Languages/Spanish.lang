@@ -1,0 +1,94 @@
+# This will appear as the language name in selection
+Language: Spanish
+
+# All application texts
+Strings:
+
+# Main window
+MainTitle=Telltale FNT Editor
+
+# Menu items
+Menu.Edit=Editar
+Menu.View=Ver
+Menu.Tools=Herramientas
+Menu.Help=Ayuda
+Menu.Settings=Configuración
+Menu.LanguageSettings=Configuración de idioma
+
+# Controls
+Controls.Title=Controles
+Button.LoadFNT=Cargar .fnt
+Button.LoadImage=Cargar imagen
+Button.ReloadImage=↻
+Button.ExportMarkings=Exportar marcas
+Check.AdvancedSettings=Configuración avanzada
+Label.SelectCharacter=Seleccionar carácter:
+Label.CharacterProperties=Propiedades del carácter
+Button.Undo=Deshacer
+Button.Redo=Rehacer
+Button.SaveChanges=Guardar cambios
+Label.Zoom=Zoom
+Label.MappingArea=Área de mapeo (arrastrar para mover)
+
+# Character properties
+Property.ID=ID
+Property.x=x
+Property.y=y
+Property.width=ancho
+Property.height=alto
+Property.xoffset=xoffset
+Property.yoffset=yoffset
+Property.xadvance=xadvance
+Property.page=página
+Label.Character=Carácter
+
+# Status messages
+Status.Ready=Listo
+Status.LoadingFNT=Cargando archivo FNT...
+Status.LoadingImage=Cargando imagen...
+Status.ImageLoaded=Imagen cargada: {filename} ({width}x{height})
+Status.ChangesSaved=¡Cambios guardados con éxito!
+Status.ExportComplete=¡Exportación completada con éxito!
+Status.Exporting=Exportando...
+
+# Dialogs
+Dialog.ConfirmExitTitle=Cambios no guardados
+Dialog.ConfirmExitMessage=Tienes cambios no guardados. ¿Deseas guardar antes de salir?
+Dialog.SaveOption=Guardar
+Dialog.DontSaveOption=No guardar
+Dialog.CancelOption=Cancelar
+Dialog.LanguageSettings=Configuración de idioma
+Dialog.SelectLanguage=Seleccionar idioma:
+Dialog.ApplyLanguage=Aplicar
+
+# Error messages
+Error.Title=Error
+Error.FileNotFound=Archivo no encontrado: {file}
+Error.InvalidFNT=Archivo FNT inválido
+Error.ImageLoadError=Error al cargar la imagen
+Error.SaveError=Error al guardar los cambios
+Error.ExportError=Error durante la exportación
+
+# Export window
+Export.Title=Seleccionar caracteres para exportar
+Button.SelectAll=Seleccionar todo
+Button.DeselectAll=Deseleccionar todo
+Button.Confirm=Confirmar
+Button.ExportNow=Exportar ahora
+
+# Help window
+Help.Title=Ayuda
+Help.WindowTitle=Ayuda - Telltale FNT Editor
+Help.Content=Telltale FNT Editor - Guía del usuario\n\n1. Cargar archivo .fnt: Usa el botón 'Cargar .fnt' para abrir un archivo de fuente\n2. Cargar imagen de la fuente: Usa el botón 'Cargar imagen' para abrir la imagen correspondiente\n3. Editar caracteres: Selecciona un carácter del menú desplegable y edita sus propiedades\n4. Controles: Deshacer/Rehacer cambios, guardar modificaciones y ajustar el nivel de zoom\n5. Exportar: Selecciona caracteres y expórtalos como imagen marcada\n6. Configuración: Cambia el idioma de la interfaz y muestra controles avanzados\n\nAtajos del teclado:\n- Ctrl+Z: Deshacer\n- Ctrl+Y: Rehacer\n\nConsejo: Puedes arrastrar el área de mapeo para reposicionarla dentro de la ventana.
+Button.Close=Cerrar
+
+# Tooltips and other texts
+Text.CharacterDisplay=Carácter: {char}
+Text.ExportFilename=marcación.png
+Text.ActionsCount=Acciones: {count}
+Text.Undone=Deshecho: {action}
+Text.Redone=Rehecho: {action}
+Text.NothingToUndo=No hay más acciones para deshacer
+Text.NothingToRedo=No hay más acciones para rehacer
+Text.LoadingAssociatedImage=Intentando cargar imagen asociada: {file}
+Text.ManualImageLoadRequired=Archivo FNT cargado. Carga la imagen manualmente

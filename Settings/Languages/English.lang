@@ -1,0 +1,94 @@
+# This will appear as the language name in selection
+Language: English
+
+# All application texts
+Strings:
+
+# Main window
+MainTitle=Telltale FNT Editor
+
+# Menu items
+Menu.Edit=Edit
+Menu.View=View
+Menu.Tools=Tools
+Menu.Help=Help
+Menu.Settings=Settings
+Menu.LanguageSettings=Language Settings
+
+# Controls
+Controls.Title=Controls
+Button.LoadFNT=Load .fnt
+Button.LoadImage=Load Image
+Button.ReloadImage=↻
+Button.ExportMarkings=Export markings
+Check.AdvancedSettings=Advanced settings
+Label.SelectCharacter=Select Character:
+Label.CharacterProperties=Character Properties
+Button.Undo=Undo
+Button.Redo=Redo
+Button.SaveChanges=Save Changes
+Label.Zoom=Zoom
+Label.MappingArea=Mapping Area (drag to move)
+
+# Character properties
+Property.ID=ID
+Property.x=x
+Property.y=y
+Property.width=width
+Property.height=height
+Property.xoffset=xoffset
+Property.yoffset=yoffset
+Property.xadvance=xadvance
+Property.page=page
+Label.Character=Character
+
+# Status messages
+Status.Ready=Ready
+Status.LoadingFNT=Loading FNT file...
+Status.LoadingImage=Loading image...
+Status.ImageLoaded=Image loaded: {filename} ({width}x{height})
+Status.ChangesSaved=Changes saved successfully!
+Status.ExportComplete=Export completed successfully!
+Status.Exporting=Exporting...
+
+# Dialogs
+Dialog.ConfirmExitTitle=Unsaved Changes
+Dialog.ConfirmExitMessage=You have unsaved changes. Save before exiting?
+Dialog.SaveOption=Save
+Dialog.DontSaveOption=Don't Save
+Dialog.CancelOption=Cancel
+Dialog.LanguageSettings=Language Settings
+Dialog.SelectLanguage=Select Language:
+Dialog.ApplyLanguage=Apply
+
+# Error messages
+Error.Title=Error
+Error.FileNotFound=File not found: {file}
+Error.InvalidFNT=Invalid FNT file
+Error.ImageLoadError=Error loading image
+Error.SaveError=Error saving changes
+Error.ExportError=Error during export
+
+# Export window
+Export.Title=Select Characters for Export
+Button.SelectAll=Select All
+Button.DeselectAll=Deselect All
+Button.Confirm=Confirm
+Button.ExportNow=Export Now
+
+# Help window
+Help.Title=Help
+Help.WindowTitle=Help - Telltale FNT Editor
+Help.Content=Telltale FNT Editor - User Guide\n\n1. Load .fnt file: Use the 'Load .fnt' button to open a font file\n2. Load font image: Use the 'Load Image' button to open the corresponding font image\n3. Edit characters: Select a character from the dropdown and edit its properties\n4. Controls: Undo/Redo changes, save modifications, and adjust zoom level\n5. Export: Select characters and export as marked image\n6. Settings: Change language interface and show advanced controls\n\nKeyboard shortcuts:\n- Ctrl+Z: Undo\n- Ctrl+Y: Redo\n\nTip: You can drag the mapping area to reposition it within the window.
+Button.Close=Close
+
+# Tooltips and other texts
+Text.CharacterDisplay=Character: {char}
+Text.ExportFilename=marking.png
+Text.ActionsCount=Actions: {count}
+Text.Undone=Undone: {action}
+Text.Redone=Redone: {action}
+Text.NothingToUndo=Nothing more to undo
+Text.NothingToRedo=Nothing more to redo
+Text.LoadingAssociatedImage=Trying to load associated image: {file}
+Text.ManualImageLoadRequired=FNT file loaded. Load image manually
