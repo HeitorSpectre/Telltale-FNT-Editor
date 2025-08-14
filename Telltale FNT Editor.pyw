@@ -505,24 +505,25 @@ class FontMapViewer:
         self.info_frame = ttk.LabelFrame(self.control_frame, text=self.lang.tr("Label.CharacterProperties"))
         self.info_frame.pack(fill=tk.X, pady=(10, 0))
         
-        # Usar propriedades definidas no arquivo de idioma
+        # Usar propriedades com chaves fixas e textos traduzidos
         properties = [
-            self.lang.tr("Property.ID"),
-            self.lang.tr("Property.x"),
-            self.lang.tr("Property.y"),
-            self.lang.tr("Property.width"),
-            self.lang.tr("Property.height"),
-            self.lang.tr("Property.xoffset"),
-            self.lang.tr("Property.yoffset"),
-            self.lang.tr("Property.xadvance"),
-            self.lang.tr("Property.page")
+            ('id', "Property.ID"),
+            ('x', "Property.x"),
+            ('y', "Property.y"),
+            ('width', "Property.width"),
+            ('height', "Property.height"),
+            ('xoffset', "Property.xoffset"),
+            ('yoffset', "Property.yoffset"),
+            ('xadvance', "Property.xadvance"),
+            ('page', "Property.page")
         ]
         
         self.info_vars = {}
         self.entry_widgets = {}
-        self.slider_widgets = {}  # Para armazenar as barras de rolagem
+        self.slider_widgets = {}
+        self.property_labels = {}  # Armazenar rótulos para retradução
         
-        for i, label in enumerate(properties):
+        for i, (key, label_key) in enumerate(properties):
             # Frame para cada propriedade
             prop_frame = ttk.Frame(self.info_frame)
             prop_frame.pack(fill=tk.X, padx=5, pady=2)
@@ -531,17 +532,16 @@ class FontMapViewer:
             frame = ttk.Frame(prop_frame)
             frame.pack(fill=tk.X, pady=(0, 2))
             
-            lbl = ttk.Label(frame, text=f"{label}:", width=10, anchor=tk.W)
+            lbl_text = self.lang.tr(label_key)
+            lbl = ttk.Label(frame, text=f"{lbl_text}:", width=10, anchor=tk.W)
             lbl.pack(side=tk.LEFT)
-            
-            # Usar o nome da propriedade sem prefixo para chave
-            prop_key = label.lower().replace(' ', '')  # Remover espaços para chave
+            self.property_labels[key] = lbl  # Guardar referência
             
             var = tk.StringVar(value="")
-            self.info_vars[prop_key] = var
+            self.info_vars[key] = var
             
-            if prop_key in ["id", "page"]:  # Campos não editáveis
-                if prop_key == "id":
+            if key in ["id", "page"]:  # Campos não editáveis
+                if key == "id":
                     id_frame = ttk.Frame(frame)
                     id_frame.pack(side=tk.LEFT, fill=tk.X, expand=True)
                     id_label = ttk.Label(id_frame, textvariable=var, anchor=tk.W)
@@ -559,7 +559,7 @@ class FontMapViewer:
             else:
                 entry = ttk.Entry(frame, textvariable=var, style='Edit.TEntry')
                 entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
-                self.entry_widgets[prop_key] = entry
+                self.entry_widgets[key] = entry
                 entry.bind("<FocusOut>", self.update_char_data)
                 entry.bind("<Return>", self.update_char_data)
                 
@@ -573,12 +573,10 @@ class FontMapViewer:
                     from_=0, 
                     to=100, 
                     orient=tk.HORIZONTAL,
-                    command=lambda value, k=prop_key: self.on_slider_change(k, value)
+                    command=lambda value, k=key: self.on_slider_change(k, value)
                 )
                 slider.pack(fill=tk.X)
-                self.slider_widgets[prop_key] = (slider_frame, slider)
-                
-                # Começar oculta
+                self.slider_widgets[key] = (slider_frame, slider)
                 slider_frame.pack_forget()
 
         # Botões de ação
@@ -732,21 +730,20 @@ class FontMapViewer:
         
         # Atualizar propriedades dos caracteres
         properties = [
-            self.lang.tr("Property.ID"),
-            self.lang.tr("Property.x"),
-            self.lang.tr("Property.y"),
-            self.lang.tr("Property.width"),
-            self.lang.tr("Property.height"),
-            self.lang.tr("Property.xoffset"),
-            self.lang.tr("Property.yoffset"),
-            self.lang.tr("Property.xadvance"),
-            self.lang.tr("Property.page")
+            ('id', "Property.ID"),
+            ('x', "Property.x"),
+            ('y', "Property.y"),
+            ('width', "Property.width"),
+            ('height', "Property.height"),
+            ('xoffset', "Property.xoffset"),
+            ('yoffset', "Property.yoffset"),
+            ('xadvance', "Property.xadvance"),
+            ('page', "Property.page")
         ]
         
-        for i, (label, prop_frame) in enumerate(zip(properties, self.info_frame.winfo_children())):
-            frame = prop_frame.winfo_children()[0]  # O frame interno que contém os widgets
-            label_widget = frame.winfo_children()[0]
-            label_widget.config(text=f"{label}:")
+        for key, label_key in properties:
+            label_text = self.lang.tr(label_key)
+            self.property_labels[key].config(text=f"{label_text}:")
 
     def toggle_advanced_settings(self):
         """Mostra ou esconde as barras de rolagem avançadas"""
